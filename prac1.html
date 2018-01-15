@@ -1,0 +1,129 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<style>
+button {
+height:50px;
+width:50px;
+}
+#container {
+height:1000px;
+width:1000px;
+}
+#container1,#container2 {
+position:absolute;
+height:144px;
+width:144px;
+border:none;
+padding:20px;
+}
+#a {
+margin-right:-2px;
+display:inline-block;
+border:none;
+border-right:none;
+height:142px;
+border-top-left-radius:70px 70px;
+border-bottom-left-radius:70px 70px;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
+width:72px;
+}
+#b {
+margin-left:-3px;
+display:inline-block;
+border:none;
+border-left:none;
+height:144px;
+border-top-right-radius:70px 70px;
+border-bottom-right-radius:70px 70px;
+border-top-left-radius:0px;
+border-bottom-left-radius:0px;
+width:71px;
+}
+#c {
+margin-bottom:-1px;
+margin-right:1px;
+border:none;
+height:70px;
+border-top-left-radius:70px 70px;
+border-top-right-radius:70px 70px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:0px;
+width:140px;
+}
+#d {
+margin-top:-1px;
+margin-right:1px;
+border:none;
+height:70px;
+border-top-left-radius:0px;
+border-bottom-left-radius:70px 70px;
+border-top-right-radius:0px;
+border-bottom-right-radius:70px 70px;
+width:140px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">
+var i=1;
+function func()
+{ 
+  var g=setInterval(func2,360);
+}
+function func2()
+{  
+  i=i+1;
+ if(i==5)
+ i=1; 
+   var a=document.getElementById("a");
+   var b=document.getElementById("b");
+  var c=document.getElementById("c");
+   var d=document.getElementById("d");
+    c.style.backgroundColor=(c.style.backgroundColor=="red"?"blue":"red");
+   d.style.backgroundColor=(d.style.backgroundColor=="red"?"blue":"red");
+   var w=0;var tp=0;var bm=0;
+  d.style.height="0px";
+  d.style.border="1px solid black";
+c.style.border="1px solid black";
+  var t=setInterval(funcy,5); 
+  function funcy()
+  {
+     w=w+1;
+     d.style.height=w+"px";
+     tp=tp+1;
+     d.style.borderBottomLeftRadius="70px"+" "+tp+"px";
+     bm=bm+1;
+     d.style.borderBottomRightRadius="70px"+" "+bm+"px"; 
+    if(w==70)
+       {  clearInterval(t);}
+  }
+  var t2=setTimeout(funcy2,355);
+  function funcy2() {
+  a.style.backgroundColor=c.style.backgroundColor;
+  b.style.backgroundColor=c.style.backgroundColor;
+   document.getElementById("container1").style.transform = "rotate("+90*i+"deg)";
+   document.getElementById("container2").style.transform = "rotate("+90*i+"deg)";   
+ }
+}  
+</script>
+</head>
+<body>
+<button type="button" onclick="func()">click
+</button>
+<div id="container">
+<div id="container1">
+<div id="a">
+</div>
+<div id="b">
+</div>
+</div>
+<div id="container2">
+<div id="c">
+</div>
+<div id="d">
+</div>
+</div>
+</div>
+</body>
+</html>
